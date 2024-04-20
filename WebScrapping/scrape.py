@@ -6,7 +6,7 @@ from openpyxl import Workbook
 from oauth2client.service_account import ServiceAccountCredentials
 
 # Define the URL to scrape
-url = "https://www.google.com/maps/place/Moti+Mahal+Restaurant/@28.6436744,77.2021401,14z/data=!4m10!1m2!2m1!1sresturent!3m6!1s0x390cfd2076d5d8a7:0xfc425590701a73a6!8m2!3d28.6464743!4d77.2401149!15sCgpyZXN0YXVyYW50WgwiCnJlc3RhdXJhbnSSARFpbmRpYW5fcmVzdGF1cmFudOABAA!16s%2Fg%2F11b6nvwh1v?entry=ttu"
+url = ""
 
 # Define categories of local businesses you want to scrape
 categories = ["restaurants", "hotels", "gyms", "salons", "pet stores"]
@@ -18,14 +18,14 @@ scope = [
 ]
 
 print("Loading credentials...")
-creds = ServiceAccountCredentials.from_json_keyfile_name('local-business-details-417521-871cae6abf80.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('*', scope)
 print("Credentials loaded:", creds)
 
 # Authenticate with Google Sheets API
 client = gspread.authorize(creds)
 
 # Open Google Sheet by providing the Google Sheet ID
-sheet = client.open_by_key("14c4k5MN11tbClah15ve6zr_XGCvIFn4sS3Ag1VKG17M").sheet1
+sheet = client.open_by_key("*").sheet1
 
 # Create a new Excel workbook and select the active sheet
 wb = Workbook()
